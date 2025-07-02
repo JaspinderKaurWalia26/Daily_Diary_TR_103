@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimal-ui">
+    <title>Training Report</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://www.gndec.ac.in/"><img src="./logo.png" alt="GNDEC Logo"></a>
+            <a href="index.html" class="home-button" onclick="showSection('home')">Home</a>    
+        </header>
+        
+        <section id="home" class="section active">
+            <h1>Training TR-103 Report</h1>
+            <p>By: Jaspinder Kaur Walia<br> Class:CSE-C2 <br>URN:2203843<br>CRN:2215199 <br>Guru Nanak Dev Engineering College,Ludhiana</p>
+            <h2>4 Week Training On <br> Prompt Engineering </h2>
+        </section>
+    
+        <nav>
+            <a href="diary.html" onclick="showSection('diary')">Daily Diary</a>
+            <a href="task.html" onclick="showSection('task')">Daily Tasks Performed</a>
+            <br>
+        </nav>
+        <footer>
+            <a href="https://www.linkedin.com/in/jaspinder-kaur-walia-479038251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> <img src="./linkdin logo.webp" alt="Unable to load" height="20px"></a>
+         </footer>
+    </div>
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.gallery img');
+        const captions = document.querySelectorAll('.gallery .caption');
+
+        function showSlide(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                captions[i].style.display = 'none';
+            });
+            images[index].classList.add('active');
+            captions[index].style.display = 'block';
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 4000); 
+    </script>
+</body>
+</html>
